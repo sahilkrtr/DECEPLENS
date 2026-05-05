@@ -1,0 +1,188 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "sc": "https://schema.org/",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/rai/",
+    "dct": "http://purl.org/dc/terms/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@type": "sc:Dataset",
+  "name": "DECEPLENS",
+  "description": "A cleaned and multi-lingual version of the MMLU-Pro dataset, supporting research on whether deception is a pattern in LLMs via mechanistic analysis. Includes translations for 5 languages and detailed cognitive/interaction metadata.",
+  "url": "https://huggingface.co/datasets/anon-ed-2026/DECEPLENS",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "version": "1.0.0",
+  "citation": "@article{DECEPLENS2026,\n  title={Deception is not a Byproduct but a Pattern via Mechanistic Analysis of LLMs},\n  author={anon-2026},\n  journal={Preprint},\n  year={2026}\n}",
+  "datePublished": "2026-05-04",
+  "creator": {
+    "@type": "sc:Organization",
+    "name": "anon-ed-2026"
+  },
+  "rai:dataLimitations": "The translations are automated and may contain nuances or errors specific to machine translation models.",
+  "rai:dataBiases": "The dataset inherits biases from the original MMLU-Pro and the translation models used.",
+  "rai:personalSensitiveInformation": "No personal or sensitive information is included.",
+  "rai:dataUseCases": "Evaluation of LLMs on multi-lingual scientific reasoning and task understanding, specifically focusing on deceptive patterns.",
+  "rai:dataSocialImpact": "Enabling better evaluation of AI models across different languages and understanding the mechanistic roots of model behavior.",
+  "rai:hasSyntheticData": "Yes, translations were generated using automated translation tools.",
+  "prov:wasDerivedFrom": [
+    {
+      "@type": "sc:Dataset",
+      "name": "MMLU-Pro",
+      "url": "https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro",
+      "license": "MIT",
+      "publisher": {
+        "@type": "sc:Organization",
+        "name": "TIGER-Lab",
+        "url": "https://github.com/TIGER-AI-Lab/MMLU-Pro"
+      }
+    }
+  ],
+  "prov:wasGeneratedBy": [
+    {
+      "@type": "prov:Activity",
+      "name": "Data Cleaning & Multi-lingual Translation",
+      "description": "MMLU-Pro data was cleaned and translated into 5 additional languages using automated translation pipelines. Data was then reformatted into single-turn and multi-turn interaction formats."
+    }
+  ],
+  "distribution": [
+    {
+      "@type": "sc:FileObject",
+      "@id": "deceplens-jsonl",
+      "name": "deceplens.jsonl",
+      "contentUrl": "https://huggingface.co/datasets/anon-ed-2026/DECEPLENS/raw/main/Data/deceplens.jsonl",
+      "encodingFormat": "application/jsonl",
+      "sha256": "0de1fd742904e30b73f9f63b5187bab51d71a8238cf0aa6fe3d537127d8281a9"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "sc:RecordSet",
+      "@id": "deceplens-records",
+      "name": "DECEPLENS records",
+      "description": "Multi-lingual records for deceptive pattern analysis.",
+      "field": [
+        {
+          "@type": "sc:Field",
+          "@id": "prompt",
+          "name": "prompt",
+          "dataType": "sc:Text",
+          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.prompt" } }
+        },
+        {
+          "@type": "sc:Field",
+          "@id": "domain",
+          "name": "domain",
+          "dataType": "sc:Text",
+          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.domain" } }
+        },
+        {
+          "@type": "sc:Field",
+          "@id": "interaction_types",
+          "name": "interaction types",
+          "dataType": "sc:Text",
+          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.['interaction types']" } }
+        },
+        {
+          "@type": "sc:Field",
+          "@id": "cognitive_types",
+          "name": "cognitive types",
+          "dataType": "sc:Text",
+          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.['cognitive types']" } }
+        },
+        {
+          "@type": "sc:Field",
+          "@id": "fine-grained_subtypes",
+          "name": "fine-grained subtypes",
+          "dataType": "sc:Text",
+          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.['fine-grained subtypes']" } }
+        },
+        {
+          "@type": "sc:Field",
+          "@id": "Eng_Single_Turn",
+          "name": "Eng_Single_Turn",
+          "dataType": "sc:Text",
+          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.Eng_Single_Turn" } }
+        },
+        {
+          "@type": "sc:Field",
+          "@id": "Eng_Multi_Turn",
+          "name": "Eng_Multi_Turn",
+          "dataType": "sc:Text",
+          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.Eng_Multi_Turn" } }
+        },
+        {
+          "@type": "sc:Field",
+          "@id": "Portuguese_Single_Turn",
+          "name": "Portuguese_Single_Turn",
+          "dataType": "sc:Text",
+          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.Portuguese_Single_Turn" } }
+        },
+        {
+          "@type": "sc:Field",
+          "@id": "Portuguese_Multi_Turn",
+          "name": "Portuguese_Multi_Turn",
+          "dataType": "sc:Text",
+          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.Portuguese_Multi_Turn" } }
+        },
+        {
+          "@type": "sc:Field",
+          "@id": "Spanish_Single_Turn",
+          "name": "Spanish_Single_Turn",
+          "dataType": "sc:Text",
+          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.Spanish_Single_Turn" } }
+        },
+        {
+          "@type": "sc:Field",
+          "@id": "Spanish_Multi_Turn",
+          "name": "Spanish_Multi_Turn",
+          "dataType": "sc:Text",
+          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.Spanish_Multi_Turn" } }
+        },
+        {
+          "@type": "sc:Field",
+          "@id": "Italian_Single_Turn",
+          "name": "Italian_Single_Turn",
+          "dataType": "sc:Text",
+          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.Italian_Single_Turn" } }
+        },
+        {
+          "@type": "sc:Field",
+          "@id": "Italian_Multi_Turn",
+          "name": "Italian_Multi_Turn",
+          "dataType": "sc:Text",
+          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.Italian_Multi_Turn" } }
+        },
+        {
+          "@type": "sc:Field",
+          "@id": "German_Single_Turn",
+          "name": "German_Single_Turn",
+          "dataType": "sc:Text",
+          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.German_Single_Turn" } }
+        },
+        {
+          "@type": "sc:Field",
+          "@id": "German_Multi_Turn",
+          "name": "German_Multi_Turn",
+          "dataType": "sc:Text",
+          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.German_Multi_Turn" } }
+        },
+        {
+          "@type": "sc:Field",
+          "@id": "French_Single_Turn",
+          "name": "French_Single_Turn",
+          "dataType": "sc:Text",
+          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.French_Single_Turn" } }
+        },
+        {
+          "@type": "sc:Field",
+          "@id": "French_Multi_Turn",
+          "name": "French_Multi_Turn",
+          "dataType": "sc:Text",
+          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.French_Multi_Turn" } }
+        }
+      ]
+    }
+  ]
+}
