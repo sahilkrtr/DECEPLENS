@@ -11,7 +11,7 @@
   "@type": "sc:Dataset",
   "name": "DECEPLENS",
   "description": "A cleaned and multi-lingual version of the MMLU-Pro dataset, supporting research on whether deception is a pattern in LLMs via mechanistic analysis. Includes translations for 5 languages and detailed cognitive/interaction metadata.",
-  "url": "https://huggingface.co/datasets/anon-ed-2026/DECEPLENS",
+  "url": "https://anonymous.4open.science/r/DECEPLENS-0AD3/",
   "license": "https://creativecommons.org/licenses/by/4.0/",
   "version": "1.0.0",
   "citation": "@article{DECEPLENS2026,\n  title={Deception is not a Byproduct but a Pattern via Mechanistic Analysis of LLMs},\n  author={anon-2026},\n  journal={Preprint},\n  year={2026}\n}",
@@ -43,7 +43,7 @@
     {
       "@type": "prov:Activity",
       "name": "Data Cleaning & Multi-lingual Translation",
-      "description": "MMLU-Pro data was cleaned and translated into 5 additional languages using automated translation pipelines. Data was then reformatted into single-turn and multi-turn interaction formats."
+      "description": "MMLU-Pro data was cleaned and translated into 5 additional languages using automated translation pipelines. Data was then reformatted into single-step and multi-turn interaction formats."
     }
   ],
   "distribution": [
@@ -51,9 +51,9 @@
       "@type": "sc:FileObject",
       "@id": "deceplens-jsonl",
       "name": "deceplens.jsonl",
-      "contentUrl": "https://huggingface.co/datasets/anon-ed-2026/DECEPLENS/raw/main/Data/deceplens.jsonl",
+      "contentUrl": "https://anonymous.4open.science/r/DECEPLENS-0AD3/Data/deceplens.jsonl",
       "encodingFormat": "application/jsonl",
-      "sha256": "0de1fd742904e30b73f9f63b5187bab51d71a8238cf0aa6fe3d537127d8281a9"
+      "sha256": "442a11887106568b8162735d50b6d1a5d783c3df3870cdb444098595c16294c5"
     }
   ],
   "recordSet": [
@@ -68,119 +68,238 @@
           "@id": "prompt",
           "name": "prompt",
           "dataType": "sc:Text",
-          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.prompt" } }
+          "source": {
+            "fileObject": {
+              "@id": "deceplens-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.prompt"
+            }
+          }
         },
         {
           "@type": "sc:Field",
           "@id": "domain",
           "name": "domain",
           "dataType": "sc:Text",
-          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.domain" } }
+          "source": {
+            "fileObject": {
+              "@id": "deceplens-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.domain"
+            }
+          }
         },
         {
           "@type": "sc:Field",
           "@id": "interaction_types",
           "name": "interaction types",
           "dataType": "sc:Text",
-          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.['interaction types']" } }
+          "source": {
+            "fileObject": {
+              "@id": "deceplens-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.['interaction types']"
+            }
+          }
         },
         {
           "@type": "sc:Field",
           "@id": "cognitive_types",
           "name": "cognitive types",
           "dataType": "sc:Text",
-          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.['cognitive types']" } }
+          "source": {
+            "fileObject": {
+              "@id": "deceplens-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.['cognitive types']"
+            }
+          }
         },
         {
           "@type": "sc:Field",
           "@id": "fine-grained_subtypes",
           "name": "fine-grained subtypes",
           "dataType": "sc:Text",
-          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.['fine-grained subtypes']" } }
+          "source": {
+            "fileObject": {
+              "@id": "deceplens-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.['fine-grained subtypes']"
+            }
+          }
         },
         {
           "@type": "sc:Field",
-          "@id": "Eng_Single_Turn",
-          "name": "Eng_Single_Turn",
+          "@id": "Eng_Single_Step",
+          "name": "Eng_Single_Step",
           "dataType": "sc:Text",
-          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.Eng_Single_Turn" } }
+          "source": {
+            "fileObject": {
+              "@id": "deceplens-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.Eng_Single_Step"
+            }
+          }
         },
         {
           "@type": "sc:Field",
-          "@id": "Eng_Multi_Turn",
-          "name": "Eng_Multi_Turn",
+          "@id": "Eng_Multi_Step",
+          "name": "Eng_Multi_Step",
           "dataType": "sc:Text",
-          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.Eng_Multi_Turn" } }
+          "source": {
+            "fileObject": {
+              "@id": "deceplens-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.Eng_Multi_Step"
+            }
+          }
         },
         {
           "@type": "sc:Field",
-          "@id": "Portuguese_Single_Turn",
-          "name": "Portuguese_Single_Turn",
+          "@id": "Portuguese_Single_Step",
+          "name": "Portuguese_Single_Step",
           "dataType": "sc:Text",
-          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.Portuguese_Single_Turn" } }
+          "source": {
+            "fileObject": {
+              "@id": "deceplens-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.Portuguese_Single_Step"
+            }
+          }
         },
         {
           "@type": "sc:Field",
-          "@id": "Portuguese_Multi_Turn",
-          "name": "Portuguese_Multi_Turn",
+          "@id": "Portuguese_Multi_Step",
+          "name": "Portuguese_Multi_Step",
           "dataType": "sc:Text",
-          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.Portuguese_Multi_Turn" } }
+          "source": {
+            "fileObject": {
+              "@id": "deceplens-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.Portuguese_Multi_Step"
+            }
+          }
         },
         {
           "@type": "sc:Field",
-          "@id": "Spanish_Single_Turn",
-          "name": "Spanish_Single_Turn",
+          "@id": "Spanish_Single_Step",
+          "name": "Spanish_Single_Step",
           "dataType": "sc:Text",
-          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.Spanish_Single_Turn" } }
+          "source": {
+            "fileObject": {
+              "@id": "deceplens-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.Spanish_Single_Step"
+            }
+          }
         },
         {
           "@type": "sc:Field",
-          "@id": "Spanish_Multi_Turn",
-          "name": "Spanish_Multi_Turn",
+          "@id": "Spanish_Multi_Step",
+          "name": "Spanish_Multi_Step",
           "dataType": "sc:Text",
-          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.Spanish_Multi_Turn" } }
+          "source": {
+            "fileObject": {
+              "@id": "deceplens-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.Spanish_Multi_Step"
+            }
+          }
         },
         {
           "@type": "sc:Field",
-          "@id": "Italian_Single_Turn",
-          "name": "Italian_Single_Turn",
+          "@id": "Italian_Single_Step",
+          "name": "Italian_Single_Step",
           "dataType": "sc:Text",
-          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.Italian_Single_Turn" } }
+          "source": {
+            "fileObject": {
+              "@id": "deceplens-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.Italian_Single_Step"
+            }
+          }
         },
         {
           "@type": "sc:Field",
-          "@id": "Italian_Multi_Turn",
-          "name": "Italian_Multi_Turn",
+          "@id": "Italian_Multi_Step",
+          "name": "Italian_Multi_Step",
           "dataType": "sc:Text",
-          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.Italian_Multi_Turn" } }
+          "source": {
+            "fileObject": {
+              "@id": "deceplens-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.Italian_Multi_Step"
+            }
+          }
         },
         {
           "@type": "sc:Field",
-          "@id": "German_Single_Turn",
-          "name": "German_Single_Turn",
+          "@id": "German_Single_Step",
+          "name": "German_Single_Step",
           "dataType": "sc:Text",
-          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.German_Single_Turn" } }
+          "source": {
+            "fileObject": {
+              "@id": "deceplens-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.German_Single_Step"
+            }
+          }
         },
         {
           "@type": "sc:Field",
-          "@id": "German_Multi_Turn",
-          "name": "German_Multi_Turn",
+          "@id": "German_Multi_Step",
+          "name": "German_Multi_Step",
           "dataType": "sc:Text",
-          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.German_Multi_Turn" } }
+          "source": {
+            "fileObject": {
+              "@id": "deceplens-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.German_Multi_Step"
+            }
+          }
         },
         {
           "@type": "sc:Field",
-          "@id": "French_Single_Turn",
-          "name": "French_Single_Turn",
+          "@id": "French_Single_Step",
+          "name": "French_Single_Step",
           "dataType": "sc:Text",
-          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.French_Single_Turn" } }
+          "source": {
+            "fileObject": {
+              "@id": "deceplens-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.French_Single_Step"
+            }
+          }
         },
         {
           "@type": "sc:Field",
-          "@id": "French_Multi_Turn",
-          "name": "French_Multi_Turn",
+          "@id": "French_Multi_Step",
+          "name": "French_Multi_Step",
           "dataType": "sc:Text",
-          "source": { "fileObject": { "@id": "deceplens-jsonl" }, "extract": { "jsonPath": "$.French_Multi_Turn" } }
+          "source": {
+            "fileObject": {
+              "@id": "deceplens-jsonl"
+            },
+            "extract": {
+              "jsonPath": "$.French_Multi_Step"
+            }
+          }
         }
       ]
     }
