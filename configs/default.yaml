@@ -1,0 +1,79 @@
+paths:
+  dataset_xlsx: ../DECEPLENS_DATA.xlsx      
+  mmlu_pro_repo: TIGER-Lab/MMLU-Pro           
+  outputs_dir: outputs
+  cache_dir: outputs/cache
+
+
+models:
+  taxonomy_classifier: mistralai/Mistral-7B-Instruct-v0.3       
+  augmenter:           meta-llama/Llama-3.1-8B-Instruct          
+  translator:          gpt-4-1106-preview                        
+  responder:           gpt-4.1                                 
+  scorer:              meta-llama/Llama-3.1-8B-Instruct         
+  trajectory_models:                                             
+    - meta-llama/Meta-Llama-3-8B-Instruct                    
+    - Qwen/Qwen2.5-7B-Instruct                                 
+
+# Hyperparameters
+hyperparameters:
+  classification_temperature: 0.2    
+  classification_voting_k: 4         
+  simhash_threshold: 0.10            
+  semantic_similarity_threshold: 0.80 
+  response_score_threshold: 3        
+  emergence_layer_threshold: 0.10     
+
+generation:
+  taus: [1, 4]                      
+
+languages: [English, Portuguese, Spanish, Italian, German, French]   
+domains:
+  - biology
+  - business
+  - chemistry
+  - computer science
+  - economics
+  - engineering
+  - health
+  - history
+  - law
+  - math
+  - philosophy
+  - physics
+  - psychology
+  - other
+
+taxonomy:
+  interaction_types: [Verbal, Behavioral, Structural]
+  cognitive_types:   [Falsification, Concealment, Equivocation]
+  fine_grained_subtypes:
+    Verbal:     [False Assertion, Strategic Omission, Misleading Framing, Sycophantic Misrepresentation]
+    Behavioral: [Covert Action, Plausible Deniability, Camouflage Execution, Evidence Tampering]
+    Structural: [Lock-in Creation, Oversight Sabotage, Audit Manipulation, Precedent Engineering]
+
+# Trajectory extraction
+trajectory:
+  pooling: response_mean                     
+  dtype: float32                      
+  batch_size: 1                      
+  max_new_tokens: 256                
+  semantic_model: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+
+
+ablations:
+  variants:
+    - full_phi
+    - post_translation_cls
+    - single_sample_labels
+    - no_deduplication
+    - direct_translation
+    - no_response_filtering
+
+# OpenAI / OpenRouter credentials 
+openai:
+  api_base: https://api.openai.com/v1
+  api_key_env: OPENAI_API_KEY
+
+
+seed: 42
